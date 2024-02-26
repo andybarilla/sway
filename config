@@ -22,7 +22,7 @@ set $term alacritty
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 # set $menu dmenu_path | dmenu | xargs swaymsg exec --
-set $menu XDG_DATA_DIRS=/usr/share/:/usr/local/share/:/var/lib/flatpak/exports/share/:$HOME/.local/share/flatpak/exports/share/ j4-dmenu-desktop --dmenu='bemenu -i --nb "#3f3f3f" --nf "#dcdccc" --fn "FiraMono Nerd Font Mono"' --term=alaritty
+set $menu XDG_DATA_DIRS=/usr/share/:/usr/local/share/:/var/lib/flatpak/exports/share/:$HOME/.local/share/flatpak/exports/share/ j4-dmenu-desktop --dmenu='bemenu -i --nb "#3f3f3f" --nf "#dcdccc" --fn "NonoSans NF"' --term=alaritty
 
 exec wl-paste -t text --watch clipman store --no-persist
 
@@ -231,9 +231,9 @@ exec swaync
 bindsym $mod+Shift+n exec swaync-client -t -sw
 
 exec swayidle -w \
-          timeout 300 'swaylock -f' \
+          timeout 300 'swaylock -f -c 000000' \
           timeout 305 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-          before-sleep 'swaylock -f'
+          before-sleep 'swaylock -f -c 000000'
 
 exec_always nm-applet --indicator
 bindsym XF86AudioRaiseVolume exec "pw-volume change +2.5%; pkill -RTMIN+8 waybar"
